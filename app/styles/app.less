@@ -1,2 +1,10 @@
-// Import required for the ember-component-css addon to work.
+// Global site styles
+@import "variables.less";
+
+body {
+    padding-top: @body-padding;
+    padding-bottom: @body-padding;
+}
+
+// Import the styles of the component pods (courtesy of the ember-component-css addon).
 @import "pod-styles";
