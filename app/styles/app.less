@@ -4,6 +4,10 @@
 body {
     padding: @body-padding;
     font-family: @sans-serif-1;
+
+    p {
+        color: @dark-gray;
+    }
 }
 
 h1 {
@@ -15,7 +19,7 @@ article {
     margin-left: @body-padding;
     margin-right: @body-padding;
 
-    >section {
+    section {
         font-size: 2em;
     }
 
@@ -26,7 +30,13 @@ article {
         // todo: When there is a need to place images side by side, add styles for that;
         margin-top: 2em;
     }
+}
 
+figure > figcaption {
+    font-size: 1em;
+    text-align: center;
+    font-family: @display-font-2;
+    color: @light-gray;
 }
 
 // Import the styles of the component pods (courtesy of the ember-component-css addon).
