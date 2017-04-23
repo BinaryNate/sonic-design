@@ -1,12 +1,14 @@
 
 <nav class="navbar-container">
     <div class="navbar-logo">
-        <img src="assets/images/navbar-logo.png" alt="Sonic Design">
+        {{#link-to 'index'}}
+            <img src="assets/images/navbar-logo.png" alt="Sonic Design">
+        {{/link-to}}
     </div>
     <section class="navbar-links">
         <div class="navbar-link-spacer"></div>
         <div class="navbar-link">
-            <a href="/">about</a>
+            {{#link-to 'about'}}about{{/link-to}}
         </div>
         <div class="navbar-link-spacer"></div>
         <div class="navbar-link">

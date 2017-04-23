@@ -6,6 +6,9 @@ body {
     padding: @body-padding--large;
     @media @phone { padding: @body-padding--small; }
 
+    font-size: 2em;
+    @media @phone { font-size: 1em; }
+
     font-family: @sans-serif-1;
 
     p {
@@ -15,8 +18,7 @@ body {
 
 h1 {
     font-family: @display-font-1;
-    font-size: 4em;
-    @media @phone { font-size: 2em; }
+    font-size: 2em;
 }
 
 h2 {
@@ -35,11 +37,6 @@ article {
     h2 {
         margin-top: 2em;
         color: @gray;
-    }
-
-    section {
-        font-size: 2em;
-        @media @phone { font-size: 1em; }
     }
 
     .article-images {
