@@ -3,7 +3,10 @@
 
     display: flex;
     justify-content: center;
-    margin-bottom: @body-padding;
+    margin-bottom: @body-padding--large;
+    @media @phone {
+        margin-bottom: @body-padding--small;
+    }
     // Allow the links to be under the logo on mobile
     flex-wrap: wrap;
 
@@ -30,6 +33,7 @@
             a {
                 flex: 1;
                 font-size: 3em;
+                @media @phone { font-size: 1em; }
                 font-family: @sans-serif-1;
                 text-decoration: none;
                 color: @primary-color;
