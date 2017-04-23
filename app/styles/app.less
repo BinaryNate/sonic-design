@@ -4,11 +4,15 @@
 body {
 
     padding: 1em;
-    padding-left: @body-padding--large;
-    padding-right: @body-padding--large;
+    padding-left: 4em;
+    padding-right: 4em;
     @media @phone {
-        padding-left: @body-padding--small;
-        padding-right: @body-padding--small;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    @media @tablet {
+        padding-left: 3em;
+        padding-right: 3em;
     }
 
     font-size: 2em;
