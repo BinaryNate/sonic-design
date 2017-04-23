@@ -23,7 +23,9 @@
     .navbar-links {
         flex: 1 0 auto;
         display: flex;
-        margin-left: 2em;
+        align-content: space-around;
+        // margin-left: 2em;
+        // @media @phone { margin-left: 1em; }
 
         .navbar-link {
             flex: 1;
@@ -38,6 +40,12 @@
                 text-decoration: none;
                 color: @primary-color;
             }
+        }
+
+        // Guarantees a minimum amount of space between links.
+        .navbar-link-spacer {
+            flex: 0 0 2em;
+            @media @phone { flex-basis: 1em; }
         }
     }
 }
