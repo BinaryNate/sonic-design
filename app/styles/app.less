@@ -3,8 +3,13 @@
 
 body {
 
-    padding: @body-padding--large;
-    @media @phone { padding: @body-padding--small; }
+    padding: 1em;
+    padding-left: @body-padding--large;
+    padding-right: @body-padding--large;
+    @media @phone {
+        padding-left: @body-padding--small;
+        padding-right: @body-padding--small;
+    }
 
     font-size: 2em;
     @media @phone { font-size: 1em; }
@@ -27,12 +32,6 @@ h2 {
 }
 
 article {
-    margin-left: @body-padding--large;
-    margin-right: @body-padding--large;
-    @media @phone {
-        margin-left: @body-padding--small;
-        margin-right: @body-padding--small;
-    }
 
     h2 {
         margin-top: 2em;
