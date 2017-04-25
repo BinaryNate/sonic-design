@@ -3,6 +3,14 @@
     display: flex;
     justify-content: center;
 
+    .contact-us-description {
+        text-align: center;
+        width: 100%;
+        font-size: 1.5em;
+        margin-bottom: 1em;
+        color: @dark-gray;
+    }
+
     .message-box {
 
         flex: 0 1 600px;
@@ -21,7 +29,7 @@
             border-width: 2px;
             font-size: inherit;
             font-family: inherit;
-            font-color: inherit;
+            color: @gray;
             padding: 0.5em;
             margin-bottom: 0.5em;
         }
@@ -44,10 +52,16 @@
         a {
             cursor: pointer;
             margin-right: 0.5em;
+            color: @dark-gray;
         }
 
         .disabled-send-button {
+            margin-right: 0.5em;
             color: @light-gray;
         }
+    }
+
+    .sent-successfully-message {
+
     }
 }

@@ -1,9 +1,13 @@
 <div class="contact-us">
 
-    {{#if sending}}
-        <img src="assets/images/orange-spinner.gif">
-    {{else}}
+    {{#if editMode}}
+
         <div class="message-box">
+
+            <div class="contact-us-description">
+                Have an idea or a question?
+            </div>
+
             {{input type="email" value=email placeholder="email"}}
             {{textarea value=message placeholder="message"}}
 
@@ -14,4 +18,16 @@
             {{/if}}
         </div>
     {{/if}}
+
+    {{#if sending}}
+        <img src="assets/images/orange-spinner.gif">
+    {{/if}}
+
+    {{#if sentSuccessfully}}
+        <div class="sent-successfully-message">
+            Great job!
+        </div>
+    {{/if}}
+
+
 </div>

@@ -13,6 +13,10 @@ export default Ember.Component.extend({
         return (typeof message === 'string') && message.trim();
     }),
     readyToSend: Ember.computed.and('emailIsValid', 'messageIsValid'),
+    editMode: Ember.computed('sending', 'sentSuccessfully', 'sentUnsuccessfully', function() {
+        return !(this.get('sending') || this.get('sentSuccessfully') || this.get('sentUnsuccessfully'));
+    }),
+    // sentSuccessfully: true,
     actions: {
         send() {
             this.set('sending', true);
