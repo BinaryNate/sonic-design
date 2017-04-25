@@ -1,13 +1,17 @@
 <div class="contact-us">
 
-
-    <div class="message-box">
-        <div class="email-container">
+    {{#if sending}}
+        <img src="assets/images/orange-spinner.gif">
+    {{else}}
+        <div class="message-box">
             {{input type="email" value=email placeholder="email"}}
-        </div>
-        <div class="message-container">
             {{textarea value=message placeholder="message"}}
-        </div>
-    </div>
 
+            {{#if readyToSend}}
+                <a {{action "send"}}>send</a>
+            {{else}}
+                <span class="disabled-send-button">send</span>
+            {{/if}}
+        </div>
+    {{/if}}
 </div>

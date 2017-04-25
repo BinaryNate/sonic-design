@@ -6,38 +6,48 @@
     .message-box {
 
         flex: 0 1 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
 
-        .email-container {
+        @message-box-border-radius: 10px;
 
-            input {
-                width: 100%;
-                border-radius: 5px;
-                box-shadow: none;
-                border-style: solid;
-                border-color: @primary-color;
-                border-width: 2px;
-                font-size: inherit;
-                font-family: inherit;
-                font-color: inherit;
-                padding: 0.5em;
-            }
-
+        input, textarea {
+            width: 100%;
+            border-radius: @message-box-border-radius;
+            box-shadow: none;
+            border-style: solid;
+            border-color: @primary-color;
+            border-width: 2px;
+            font-size: inherit;
+            font-family: inherit;
+            font-color: inherit;
+            padding: 0.5em;
             margin-bottom: 0.5em;
         }
 
-        .message-container {
+        // Style the placeholder text. Non-standard, but oh well.
+        @message-placeholder-font: @display-font-1;
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          font-family: @message-placeholder-font;
+        }
+        ::-moz-placeholder { /* Firefox 19+ */
+          font-family: @message-placeholder-font;
+        }
+        :-ms-input-placeholder { /* IE 10+ */
+          font-family: @message-placeholder-font;
+        }
+        :-moz-placeholder { /* Firefox 18- */
+          font-family: @message-placeholder-font;
+        }
 
-            textarea {
-                width: 100%;
-                height: 5em;
-                border-radius: 5px;
-                border-color: @primary-color;
-                border-width: 2px;
-                font-size: inherit;
-                font-family: inherit;
-                font-color: inherit;
-                padding: 0.5em;
-            }
+        a {
+            cursor: pointer;
+            margin-right: 0.5em;
+        }
+
+        .disabled-send-button {
+            color: @light-gray;
         }
     }
 }
