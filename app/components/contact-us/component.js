@@ -16,7 +16,6 @@ export default Ember.Component.extend({
     editMode: Ember.computed('sending', 'sentSuccessfully', 'sentUnsuccessfully', function() {
         return !(this.get('sending') || this.get('sentSuccessfully') || this.get('sentUnsuccessfully'));
     }),
-    sentSuccessfully: true,
     actions: {
         send() {
             this.set('sending', true);

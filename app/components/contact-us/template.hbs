@@ -25,12 +25,16 @@
 
     {{#if sentSuccessfully}}
         <div>
-            <div class="thanks">Thanks!</div>
-            <div class="sent-successfully-message">
-                I'll get back to you soon.
-            </div>
+            <div class="sent-message-heading">Thanks!</div>
+            I'll get back to you soon.
         </div>
     {{/if}}
 
+    {{#if sentUnsuccessfully}}
+        <div>
+            <div class="sent-message-heading">That didn't work :(</div>
+            Please email me at binarynate@gmail.com instead.
+        </div>
+    {{/if}}
 
 </div>
