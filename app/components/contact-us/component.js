@@ -29,7 +29,7 @@ export default Ember.Component.extend({
             return Ember.RSVP.resolve()
             .then(() => {
                 this.set('sending', true);
-                return this.get('ajax').post('/api/v2/contactMessages', {
+                return this.get('ajax').post('/api/v1/contactMessages', {
                     email: this.get('email'),
                     message: this.get('message')
                 });
