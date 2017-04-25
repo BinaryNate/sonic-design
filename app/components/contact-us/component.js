@@ -2,9 +2,8 @@ import Ember from 'ember';
 
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const delay = ms => new Ember.RSVP.Promise((res) => setTimeout(res, ms));
-
 export default Ember.Component.extend({
+
     ajax: Ember.inject.service(),
 
     emailIsValid: Ember.computed('email', function() { return EMAIL_REGEX.test(this.get('email')); }),
@@ -16,17 +15,31 @@ export default Ember.Component.extend({
     editMode: Ember.computed('sending', 'sentSuccessfully', 'sentUnsuccessfully', function() {
         return !(this.get('sending') || this.get('sentSuccessfully') || this.get('sentUnsuccessfully'));
     }),
-    actions: {
-        send() {
-            this.set('sending', true);
-            return delay(2000)
-            .then(() => this.set('sending', false));
-            // let data = {
-            //     email: this.get('email'),
-            //     message: this.get('message')
-            // };
 
-            // return this.get('ajax').post('/api/v2/contactMessages', { data })
+    init() {
+        this._super(...arguments);
+        this.set('sentSuccessfully', false);
+        this.set('sentUnsuccessfully', false);
+        this.set('sending', false);
+    },
+
+    actions: {
+
+        send() {
+            return Ember.RSVP.resolve()
+            .then(() => {
+                this.set('sending', true);
+                return this.get('ajax').post('/api/v2/contactMessages', {
+                    email: this.get('email'),
+                    message: this.get('message')
+                });
+            })
+            .then(() => this.set('sentSuccessfully', true))
+            .catch(error => {
+                Ember.Logger.error(`An error occurred while sending the contact message: ${error.stack}`);
+                this.set('sentUnsuccessfully', true);
+            })
+            .then(() => this.set('sending', false));
         }
     }
 });
