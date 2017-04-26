@@ -30,8 +30,11 @@ export default Ember.Component.extend({
             .then(() => {
                 this.set('sending', true);
                 return this.get('ajax').post('/api/v1/contactMessages', {
-                    email: this.get('email'),
-                    message: this.get('message')
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        email: this.get('email'),
+                        message: this.get('message')
+                    })
                 });
             })
             .then(() => this.set('sentSuccessfully', true))
