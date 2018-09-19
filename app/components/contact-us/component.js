@@ -29,7 +29,7 @@ export default Ember.Component.extend({
             return Ember.RSVP.resolve()
             .then(() => {
                 this.set('sending', true);
-                return this.get('ajax').post('https://api.viewport.org/v1/communication/message', {
+                return this.get('ajax').post('https://api.vuplex.com/v1/communication/message', {
                     contentType: 'application/json',
                     data: JSON.stringify({
                         email: this.get('email'),
